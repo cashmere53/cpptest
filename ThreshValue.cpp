@@ -4,7 +4,7 @@ template <typename T>
 class ThreshValue {
 public:
     ThreshValue(T min, T max) : value(0), min(min), max(max) {}
-    ThreshValue(T min, T max, T init) : ThreshValue(min, max), value(init) {}
+    ThreshValue(T min, T max, T init) : value(init), min(min) , max(max) {}
 
     void set(T value) {
         if (value > this->max) {
@@ -16,7 +16,8 @@ public:
         }
     }
 
-    T get() { return this->value; }
+    template <typename U = T>
+    U get() { return static_cast<U>(this->value); }
 
 private:
     T value;
