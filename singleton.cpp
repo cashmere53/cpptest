@@ -55,7 +55,16 @@ private:
     int val;
 };
 
+void add5() {
+    Singleton<Test>::getInstance().inc();
+    Singleton<Test>::getInstance().inc();
+    Singleton<Test>::getInstance().inc();
+    Singleton<Test>::getInstance().inc();
+    Singleton<Test>::getInstance().inc();
+}
+
 int main() {
+    Singleton<Test>::create();
     Singleton<Test>::getInstance().inc();
 
     std::cout << Singleton<Test>::getInstance().getA() << std::endl;
@@ -65,6 +74,7 @@ int main() {
     Singleton<Test>::getInstance().inc();
     std::cout << Singleton<Test>::getInstance().getA() << std::endl;
 
+    add5();
     Singleton<Test>::getInstance().dec();
     Singleton<Test>::getInstance().dec();
     Singleton<Test>::getInstance().dec();
